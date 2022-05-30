@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { FC } from 'react';
 import { EntriesPovider } from '../context/entries';
-import { UIPovider } from '../context/ui';
+import { UIProvider } from '../context/ui';
 
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,7 +21,7 @@ export default function MyApp<Props>(props: {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
     <EntriesPovider>
-      <UIPovider>
+      <UIProvider>
         <CacheProvider value={emotionCache}>
           <Head>
             <meta
@@ -35,7 +35,7 @@ export default function MyApp<Props>(props: {
             <Component {...pageProps} />
           </ThemeProvider>
         </CacheProvider>
-      </UIPovider>
+      </UIProvider>
     </EntriesPovider>
   );
 }

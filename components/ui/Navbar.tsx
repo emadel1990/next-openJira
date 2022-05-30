@@ -3,7 +3,7 @@ import { FC, useContext } from 'react';
 import { Toolbar, AppBar, IconButton } from '@mui/material';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Typography } from '@mui/material';
-import { UIContext, UIPovider } from '../../context/ui';
+import { UIContext, UIProvider } from '../../context/ui';
 
 export const Navbar: FC = () => {
   const { openSideMenu } = useContext(UIContext);

@@ -4,7 +4,7 @@ import { Entry } from '../../interfaces';
 import { EntriesContext, entriesReducer } from './';
 
 export interface EntriesState {
-  entries?: Entry[];
+  entries: Entry[];
   children?: ReactNode | any;
 }
 const Entries_INITIAL_STATE: EntriesState = {
@@ -30,7 +30,7 @@ const Entries_INITIAL_STATE: EntriesState = {
   ]
 };
 
-export const EntriesPovider: FC<EntriesState> = ({ children }) => {
+export const EntriesProvider: FC<EntriesState> = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
   const addNewEntry = (description: string) => {

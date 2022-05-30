@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { FC } from 'react';
-import { EntriesPovider } from '../context/entries';
+import { EntriesProvider } from '../context/entries';
 import { UIProvider } from '../context/ui';
 
 import PropTypes from 'prop-types';
@@ -20,8 +20,11 @@ export default function MyApp<Props>(props: {
 }) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <EntriesPovider>
-      <UIProvider>
+    <EntriesProvider entries={[]}>
+      <UIProvider
+        sideMenuOpen={false}
+        addingTask={false}
+        isDraggingTask={false}>
         <CacheProvider value={emotionCache}>
           <Head>
             <meta
@@ -36,7 +39,7 @@ export default function MyApp<Props>(props: {
           </ThemeProvider>
         </CacheProvider>
       </UIProvider>
-    </EntriesPovider>
+    </EntriesProvider>
   );
 }
 

@@ -13,7 +13,7 @@ const UI_INITIAL_STATE: UIState = {
   isDraggingTask: false
 };
 
-export const UIProvider: FC<UIState> = ({ children }) => {
+export const UIProvider: FC<UIState> = props => {
   const [state, dispatch] = useReducer(uiReducer, UI_INITIAL_STATE);
 
   const openSideMenu = () => {
@@ -46,7 +46,7 @@ export const UIProvider: FC<UIState> = ({ children }) => {
         setStartDragging,
         setEndDragging
       }}>
-      {children}
+      {props.children}
     </UIContext.Provider>
   );
 };

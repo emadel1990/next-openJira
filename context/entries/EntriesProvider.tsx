@@ -4,7 +4,7 @@ import { Entry } from '../../interfaces';
 import { EntriesContext, entriesReducer } from './';
 
 export interface EntriesState {
-  entries: Entry[];
+  entries?: Entry[];
   children?: ReactNode | any;
 }
 const Entries_INITIAL_STATE: EntriesState = {

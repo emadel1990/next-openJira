@@ -7,26 +7,28 @@ type EntriesActionType =
 
 //reducer is not async
 export const entriesReducer = (state: EntriesState, action: EntriesActionType): EntriesState => {
-  switch (action.type) {
-    case '[Entry] - Add-Entry':
-      return {
-        ...state,
-        entries: [...state.entries, action.payload]
-      };
-    case '[Entry] - Update-Entry':
-      return {
-        ...state,
-        entries: state.entries.map(entry => {
-          if (entry._id === action.payload._id) {
-            entry.status = action.payload.status;
-            entry.description = action.payload.description;
-            entry.createdAt = action.payload.createdAt;
-          }
-          return entry;
-        })
-      };
+  if (state.entries) {
+    switch (action.type) {
+      case '[Entry] - Add-Entry':
+        return {
+          ...state,
+          entries: [...state.entries, action.payload]
+        };
+      case '[Entry] - Update-Entry':
+        return {
+          ...state,
+          entries: state?.entries?.map(entry => {
+            if (entry._id === action.payload._id) {
+              entry.status = action.payload.status;
+              entry.description = action.payload.description;
+              entry.createdAt = action.payload.createdAt;
+            }
+            return entry;
+          })
+        };
 
-    default:
-      return state;
-  }
+      default:
+        return state;
+    }
+  } else return state;
 };

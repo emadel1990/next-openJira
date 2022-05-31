@@ -20,11 +20,8 @@ export default function MyApp<Props>(props: {
 }) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <EntriesProvider entries={[]}>
-      <UIProvider
-        sideMenuOpen={false}
-        addingTask={false}
-        isDraggingTask={false}>
+    <EntriesProvider>
+      <UIProvider>
         <CacheProvider value={emotionCache}>
           <Head>
             <meta

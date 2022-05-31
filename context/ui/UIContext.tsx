@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 
 export interface UIContextProps {
-  sideMenuOpen: boolean;
-  addingTask: boolean;
-  isDraggingTask: boolean;
+  sideMenuOpen?: boolean;
+  addingTask?: boolean;
+  isDraggingTask?: boolean;
 
   //Methods
   openSideMenu: () => void;
